@@ -1,0 +1,10 @@
+---
+  - hosts: localhost
+    connection: local
+    tasks:
+
+    - name: Send morning reminder notification
+      slack:
+        token: "{{ API_token }}"
+        channel: "{{ slack_channel }}"
+        msg: "_Good Morning Devops_ :smile: \n\nThis weeks rota: \n - *BuildSquad:* {{ BuildSquad }} \n - *RunSquad:* {{ RunSquad }} \n\n_Have a great {{ ansible_date_time.weekday }}!_"
